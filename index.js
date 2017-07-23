@@ -18,7 +18,6 @@ const TOGGLE_DOOR = function() {
 
 var server = require('diet') // Require Diet
 var app = server()           // Create App
-app.listen('http://localhost:8000')
 app.listen('http://localhost/')
 
 app.get('/', ($) => {
