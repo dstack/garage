@@ -1,6 +1,6 @@
 const TIMING_DELAY = 200; // send signal for 200ms
 
-const exec = require('child_process').execSync;
+const exec = require('child_process').exec;
 
 // clean start
 exec('gpio write 4 1', () => {
