@@ -1,18 +1,18 @@
 const TIMING_DELAY = 200; // send signal for 200ms
 
-const exec = require('child_process').exec;
+const exec = require('child_process').execSync;
+
+// clean start
+exec('gpio write 4 1');
+exec('gpio mode 4 out');
+
 const TOGGLE_DOOR = function() {
-  exec('gpio write 4 1', (err, so, se) => {
-    exec('gpio mode 4 out', (err, so, se) => {
-      exec('gpio write 4 0', (err, so, se) => {
-        setTimeout(() => {
-          exec('gpio write 4 1', (err, so, se) => {
-            console.log('door toggled');
-          });
-        }, TIMING_DELAY);
-      })
-    });
-  });
+  exec('gpio write 4 1');
+  exec('gpio mode 4 out');
+  exec('gpio write 4 0');
+  setTimeout(() => {
+    exec('gpio write 4 1');
+  }, TIMING_DELAY);
 }
 
 
